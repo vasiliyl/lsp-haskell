@@ -289,5 +289,24 @@ These are assembled from the customizable variables
 
 ;; ---------------------------------------------------------------------
 
+(defun lsp-haskell-set-formatting-provider (val)
+  "Set formatting provider."
+  (lsp-haskell-set-config "formattingProvider" val))
+
+(defun lsp-haskell-set-formatting-provider-brittany ()
+  "Set formatting provider to brittany."
+  (interactive)
+  (lsp-haskell-set-formatting-provider "brittany")
+  (lsp-haskell--set-configuration))
+
+(defun lsp-haskell-set-formatting-provider-floskell ()
+  "Set formatting provider to floskell."
+  (interactive)
+  (lsp-haskell-set-formatting-provider "floskell")
+  (lsp-haskell--set-configuration))
+
+;; -------------------------------------
+
+
 (provide 'lsp-haskell)
 ;;; lsp-haskell.el ends here
