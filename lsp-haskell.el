@@ -74,6 +74,18 @@ For example, use the following the start the hie process in a nix-shell:
           (function :tag "Custom function")))
 
 ;; ---------------------------------------------------------------------
+;; GhcMod functions
+
+(defun lsp-case-split ()
+  "Case split expression"
+  (interactive)
+  (lsp--cur-workspace-check)
+  (lsp--send-execute-command
+   "ghcmod:casesplit"
+   (vector `(:file ,(concat "file://" buffer-file-name)
+		   :pos  ,(lsp-point-to-position (point))))))
+
+;; ---------------------------------------------------------------------
 ;; HaRe functions
 
 (defun lsp-demote ()
